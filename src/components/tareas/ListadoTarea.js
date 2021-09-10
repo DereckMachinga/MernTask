@@ -1,17 +1,19 @@
 import React,{Fragment,useContext} from 'react';
 import Tarea from './Tarea';
 import proyectoContext from '../../context/proyectos/proyectoContext';
+import tareacontext from '../../context/tareas/tareaContext';
+
 const ListadoTarea = () => {
+    //Extraer proyectos de state incial
     const proyectosContext = useContext(proyectoContext);
     const {proyecto, eliminarProyecto} = proyectosContext;
+    // Obtener las tareas del proyecto
+    const tareasContext = useContext(tareacontext);
+    const  { tareasProyecto } = tareasContext;
     if(!proyecto) return <h2>Selecciona un proyecto</h2>
     //Extraer el proyecto actual de proyecto
     const [ proyectoActual ] = proyecto;
-    const tareasProyecto = [
-        { nombre: 'Comer', estado: true},
-        { nombre: 'dormir', estado: false},
-        { nombre: 'kgar', estado: true}
-    ];
+    
     const onclickEliminar = () => {
         eliminarProyecto(proyectoActual.id);
     }
