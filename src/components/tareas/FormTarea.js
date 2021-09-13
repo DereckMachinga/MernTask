@@ -7,7 +7,7 @@ const FormTarea = () => {
     const {proyecto} = proyectosContext;
     //Extraer el context para tareas
     const tareasContext = useContext(tareaContext);
-    const {errortarea ,agregarTarea, validarTarea} = tareasContext;
+    const {errortarea ,agregarTarea, validarTarea, obtenerTareas} = tareasContext;
     //State del formulario
     const [tarea, guardarTarea] = useState({
         nombre: ''
@@ -39,7 +39,8 @@ const FormTarea = () => {
         tarea.proyectoId = proyectoActual.id;
         tarea.estado = false;
         agregarTarea(tarea);
-
+        // Obtener y filtrar las tareas del proyecto actual 
+        obtenerTareas(proyectoActual.id);
         //reiniciar el formulario 
         guardarTarea({
             nombre: '',
