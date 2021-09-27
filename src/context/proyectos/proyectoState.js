@@ -11,13 +11,7 @@ import { FORMULARIO_PROYECTO,
         ElIMINAR_PROYECTO
 } from '../../types';
 
-const ProyectoState = props => {
-    const proyectos = [
-        { id: 1, nombre: 'Tienda virtual'},
-        { id: 2, nombre: 'Tienda Mongol'},
-        { id: 3, nombre: 'Tienda Tiendaps'},
-        { id: 4, nombre: 'Tienda AEA'}
-    ]
+const ProyectoState = (props) => {
     const initialState = {
         proyectos: [
         ],
@@ -25,6 +19,12 @@ const ProyectoState = props => {
         errorformulario: false,
         proyecto: null,
     }
+    const proyectos = [
+        { id: 1, nombre: 'Tienda virtual'},
+        { id: 2, nombre: 'Tienda Mongol'},
+        { id: 3, nombre: 'Tienda Tiendaps'},
+        { id: 4, nombre: 'Tienda AEA'}
+    ]
     //dispatch para ejecutar las acciones
     const [state, dispatch] = useReducer(proyectoReducer, initialState);
 
